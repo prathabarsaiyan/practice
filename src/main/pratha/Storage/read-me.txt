@@ -1,0 +1,8 @@
+/**
+ * Design a file storage System where we can perform following operations.
+ * Each entry will be unique on the basis of key
+ * 1. create an entry in the file
+ * 2. update the entry
+ * 3. fetch the entry
+ * 4. delete the entry
+ */

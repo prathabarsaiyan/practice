@@ -1,0 +1,78 @@
+Library Management System
+
+1. Multiple copies of book
+2. Search by title, author, category, date_of_publishing
+3. Notification for previously searched now available book
+4. Notification for due date approaching/over
+
+
+id, date_created, date_modified
+
+
+Category
+	name
+
+
+Author
+	name, author_details
+
+
+Book
+	title, author_id, category_id, description
+			with index on tile, author_id, category_id
+
+
+User:
+	name, address, number, email, public_id_num, public_id_type, user_type
+
+
+User_type:
+	Admin
+	Librarian
+	customer
+
+
+Booking
+	book_id, date_of_booking, due_date, user_id, status
+
+
+book_count_details
+	book_id, available_count, booked_count
+
+
+Subscribers
+    book_id, [user_ids]
+
+
+
+Library Management Service:
+	1. lend a book
+		fetchBooks, FetchAuthors, fetchCategory - cache
+		search author
+		findAvailability(Map<key, value> map)
+		lend or subscribe
+
+		 - lendABookId - we can remove the user for subscription list
+		 - Subscribe
+
+	2. Send Notification for Due Date
+		Background task/cron, which is running each day
+
+	3. Returning of a book or new book are getting added
+		Update the booking, book_count_details
+		check the subscriber for the book, send the notification
+
+
+TrieNode {
+	char ch,
+	List<TrieNode>  children;
+	boolean word;
+	List<Author> suggestions
+}
+
+
+Notification Service
+		- To send the notification {to, from, content, communication_type}
+
+
+

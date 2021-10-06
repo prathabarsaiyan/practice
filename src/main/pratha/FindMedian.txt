@@ -1,0 +1,22 @@
+Q2.
+
+FK Mobile category:
+
+Sale
+
+10, 5, 7, 13, 11, ……..
+
+Median?
+
+API-> median of all the sales number
+
+5,7,10,11,13..
+10
+
+
+Nlogn
+
+
+a = [5,7,10,11,13]
+
+19,9,8,20

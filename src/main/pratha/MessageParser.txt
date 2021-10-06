@@ -1,0 +1,36 @@
+Design an efficient system - which consumes a stream of trading messages, parse the messages and publish the parsed messages for the consumers
+
+
+upstream System -> layer of servers -> downstream System
+
+
+Performant
+Scalable
+As these are trading messages, sequence is important
+
+
+
+Code, price, date
+
+code - date
+EMC2
+
+
+{
+    Symbol
+	MsgType - Sell/Buy
+	Date
+	Quantity
+}
+
+
+
+Servers will be polling one message - processing it - publishing it to downstream
+
+
+DB
+Symbol, Quantity
+
+
+server 1 polls 1 message
+parses the message and read the symbol, lock the DB entry for the symbol, update the entry in DB,  publish the updated message
