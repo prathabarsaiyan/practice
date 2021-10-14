@@ -1,0 +1,108 @@
+Get employee by name
+Get all employees reporting to a manager
+Get all employees in a department (employees can be in multiple departments)
+Insert new employee (or manager) into the directory
+
+
+Company directory service
+
+1. Access to employee
+2. info about manager
+
+
+id, date_created, date_modified
+
+Department
+name
+
+Employee - indexing on first_name, last,emp_id
+first_name, last_name, address, phone_number, email_address, dp_url, official_address, emp_id
+
+
+Emp_dep - indexing on dept_id, emp_id, manager_id
+dept_id, emp_id, manager_id(emp_id), designation
+
+
+Db- MySQL
+
+
+Rest API service
+
+\searchOnName?name=
+GET call
+
+Reponse: Json
+
+[
+  {
+    emp_id, name, dp_url, dep, designation
+  },
+
+  {
+    emp_id, name, dp_url, dep, designation
+  }
+]
+
+
+\fetchById?emp_id=
+Get call
+Response: Json
+
+{
+  emp_id, name, dp_url, dep, designation, Manager{emp_id, name, designation}, phone_number
+}
+
+\getAllDept
+Json -
+[
+  {id, name}
+]
+
+
+\addEmployee
+Post
+{
+  name, address, phone_number, department, personal_email, official_email, manager
+}
+
+\editEmployee\emp_id
+PUT
+{
+  address
+}
+
+\fetchByDept?ind=2
+Pagination
+Response: {
+  total: 50000,
+  current: 20
+  ind : 1
+  employees: [{
+    emp_id, name, dp_url, dep, designation
+  },
+
+  {
+    emp_id, name, dp_url, dep, designation
+  }]
+}
+
+\fetchByManager
+Pagination
+  Response: [
+    {
+      emp_id, name, dp_url, dep, designation
+    },
+
+    {
+      emp_id, name, dp_url, dep, designation
+    }
+  ]
+
+
+
+ AlertDashboard
+
+ System Metrics
+ CPU utilization
+ health
+
