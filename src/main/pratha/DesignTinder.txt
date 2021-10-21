@@ -1,0 +1,40 @@
+Tinder
+
+- User Service - S3
+- Geo Location
+- Matches
+- Recommendations
+
+
+
+User Service
+ - AddUser
+ User{
+	 id,
+	 name ,
+	 bio,
+	 gender,
+	 preferences,
+	 age
+	 image - [urls],
+	 location,
+	 likes
+ }
+ - EditUser
+ - DeleteUser
+
+
+Authentication Service
+	- authencation
+
+Recommendation Service
+	- getRecommendations - partial responses
+		- to provide the nearest users matching preferences
+
+Matching Service
+	- user-user mapping
+
+Notification Service
+	- SNS
+
+
