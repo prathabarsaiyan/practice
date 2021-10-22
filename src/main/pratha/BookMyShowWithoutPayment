@@ -1,0 +1,112 @@
+
+Movie Ticket Booking
+
+- Movies
+- Multiple theatre
+- Seat
+
+
+Theater -> Screens -> Seats
+
+Movie -> ShowTimings -> Theater -> Screens -> Seats -> Status
+
+
+City -> Theatre
+
+Movie <> Theatre
+
+
+User Select Date & City
+      -> fetchTheListOfTheatre
+      -> fetchTheMoviesRunning
+
+City
+  - id,
+  - name
+
+Movie
+  - Id
+  - Name
+  - Data(Director, actor,desc)
+  - ReleaseDate
+
+Theater
+  - id
+  - name
+  - city_id
+
+Screen
+  - id
+  - name
+  - theater_id
+  - seat_count
+
+SeatLayout
+  - id
+  - name
+  - screen_id
+
+ShowTimings
+  - id
+  - movieId
+  - time
+  - date
+  - screenId
+
+ShowScreenSeatStatus
+  - id
+  - status - available, blocked, booked
+  - seat_id
+  - show_timing_id
+
+
+Booking -
+
+user select the seats -> proceed
+
+user
+  - id
+  - email - index
+  - phone_number - index
+  - isGuestUser
+
+Booking
+  - id
+  - user_id - index
+  - status - in_process, booked, cancelled,
+  - show_timing_id
+  - booking_date - index
+
+BookingSeatMapping
+  - id
+  - show_screen_seat_status_id
+  - booking_id - index
+
+
+APIs:
+
+ShowInfo
+ - getTheListOfTheatre?city=&date= - GET
+
+ - getTheMoviesRunning?city=&date= - GET
+
+ - getTheatersByMovie?city=&date=&movieId=
+
+ - getMoviesByTheatre?city=&date=&theaterId=
+
+ - getSeatInfo?showTimingId=
+
+
+Booking
+  - InitiateBooking - POST
+       - validations for availability - return with error
+    {
+      showTimingId,
+      [ShowScreenSeatStatusIds],
+      userInfo
+    }
+
+
+
+  - UpdateBooking   - PUT
+
